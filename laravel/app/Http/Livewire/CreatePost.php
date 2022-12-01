@@ -31,14 +31,21 @@ class CreatePost extends Component
 
     public function createPost()
     {
+       
         $this->validate();
         $post = Post::create([
                     'user_id' => Auth::id(),
                     'body' => $this->body
                 ]);
+        
 
         $this->body = "";
+        $this->emit('postCreated');
+        $this->reset();
+        
         session()->flash('message', 'Post successfully created.');
+
+        $this->dispatchBrowserEvent('close-modal');
         
     }
 }

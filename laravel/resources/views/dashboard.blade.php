@@ -9,7 +9,11 @@
         </h2>
     </x-slot>
 
-    <livewire:create-post />
 
-    
+  <livewire:list-post />
+  <livewire:create-post />
+  
+
+
+ 
 </x-app-layout>
